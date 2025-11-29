@@ -1,10 +1,390 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>My Business</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Cutaway Main - Independent game studio creating unique gaming experiences">
+    <title>Cutaway Main | Indie Game Studio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #2d3748;
+            --accent-color: #4299e1;
+            --text-color: #e2e8f0;
+            --bg-dark: #1a202c;
+            --bg-darker: #0f1419;
+            --card-bg: #2d3748;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, var(--bg-darker) 0%, var(--bg-dark) 100%);
+            color: var(--text-color);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        header {
+            background: rgba(45, 55, 72, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(66, 153, 225, 0.2);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--accent-color);
+            text-decoration: none;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-color);
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+
+        .hero {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 6rem 2rem 4rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #4299e1 0%, #667eea 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: #a0aec0;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            color: var(--accent-color);
+        }
+
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .game-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid rgba(66, 153, 225, 0.1);
+        }
+
+        .game-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(66, 153, 225, 0.3);
+        }
+
+        .game-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .game-content {
+            padding: 1.5rem;
+        }
+
+        .game-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--accent-color);
+        }
+
+        .game-content p {
+            color: #a0aec0;
+            margin-bottom: 1rem;
+        }
+
+        .game-status {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background: rgba(66, 153, 225, 0.2);
+            border-radius: 20px;
+            font-size: 0.875rem;
+            color: var(--accent-color);
+            font-weight: 600;
+        }
+
+        .about-section {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 3rem;
+            margin-bottom: 4rem;
+            border: 1px solid rgba(66, 153, 225, 0.1);
+        }
+
+        .about-section p {
+            font-size: 1.1rem;
+            color: #cbd5e0;
+            line-height: 1.8;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .newsletter {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 3rem;
+            text-align: center;
+            border: 1px solid rgba(66, 153, 225, 0.1);
+        }
+
+        .newsletter h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--accent-color);
+        }
+
+        .newsletter p {
+            color: #a0aec0;
+            margin-bottom: 2rem;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 1rem;
+            max-width: 500px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            min-width: 250px;
+            padding: 0.875rem 1.25rem;
+            border: 2px solid rgba(66, 153, 225, 0.3);
+            border-radius: 8px;
+            background: var(--bg-dark);
+            color: var(--text-color);
+            font-size: 1rem;
+        }
+
+        .newsletter-form input:focus {
+            outline: none;
+            border-color: var(--accent-color);
+        }
+
+        .btn {
+            padding: 0.875rem 2rem;
+            background: var(--accent-color);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        .btn:hover {
+            background: #3182ce;
+            transform: translateY(-2px);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            margin-top: 3rem;
+        }
+
+        .social-links a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: var(--accent-color);
+        }
+
+        footer {
+            background: var(--bg-darker);
+            padding: 2rem;
+            text-align: center;
+            color: #718096;
+            border-top: 1px solid rgba(66, 153, 225, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .nav-links {
+                gap: 1rem;
+            }
+
+            .games-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+
+            .newsletter-form input {
+                min-width: 100%;
+            }
+        }
+    </style>
 </head>
 <body>
-    <h1>Welcome to My Business</h1>
-    <p>This is my professional website.</p>
+    <header>
+        <nav>
+            <a href="#" class="logo">Cutaway Main</a>
+            <ul class="nav-links">
+                <li><a href="#games">Games</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Cutaway Main</h1>
+        <p>Independent game studio crafting unique and memorable gaming experiences</p>
+    </section>
+
+    <div class="container">
+        <section id="games">
+            <h2 class="section-title">Our Games</h2>
+            <div class="games-grid">
+                <div class="game-card">
+                    <div class="game-image">Game Trailer/Screenshot</div>
+                    <div class="game-content">
+                        <h3>Your Game Title</h3>
+                        <p>A brief description of your game. What makes it special? What genre is it? What's the core gameplay?</p>
+                        <span class="game-status">In Development</span>
+                    </div>
+                </div>
+                
+                <!-- Add more game cards as needed -->
+                <div class="game-card">
+                    <div class="game-image">Future Project</div>
+                    <div class="game-content">
+                        <h3>Coming Soon</h3>
+                        <p>More exciting projects in the works. Stay tuned for updates!</p>
+                        <span class="game-status">Upcoming</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="about-section">
+            <h2 class="section-title">About Us</h2>
+            <p>
+                Cutaway Main is an independent game studio dedicated to creating innovative and engaging gaming experiences. 
+                We believe in crafting games that tell meaningful stories and provide players with memorable adventures. 
+                Our passion is to push creative boundaries and deliver games that resonate with players around the world.
+            </p>
+        </section>
+
+        <section id="contact" class="newsletter">
+            <h2>Stay Updated</h2>
+            <p>Sign up to receive the latest news, updates, and announcements about our games</p>
+            <form class="newsletter-form" action="#" method="POST">
+                <input type="email" placeholder="Enter your email" required>
+                <button type="submit" class="btn">Subscribe</button>
+            </form>
+            
+            <div class="social-links">
+                <a href="#" title="Twitter">🐦</a>
+                <a href="#" title="Discord">💬</a>
+                <a href="#" title="YouTube">📺</a>
+                <a href="#" title="Steam">🎮</a>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Cutaway Main. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Simple form handling (you'll want to connect this to an actual email service)
+        document.querySelector('.newsletter-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thanks for subscribing! (Note: Connect this to an actual email service like Mailchimp, ConvertKit, etc.)');
+            this.reset();
+        });
+    </script>
 </body>
 </html>
