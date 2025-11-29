@@ -49,7 +49,7 @@
         }
 
         .logo {
-            font-size: 1.5rem;
+            font-size: 2rem;
             font-weight: bold;
             color: var(--accent-color);
             text-decoration: none;
@@ -100,6 +100,10 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 4rem 2rem;
+        }
+
+        #games, #about {
+            scroll-margin-top: 100px;
         }
 
         .section-title {
@@ -292,14 +296,13 @@
         }
     </style>
 </head>
-<body>
+<body id="top">
     <header>
         <nav>
-            <a href="#" class="logo">Cutaway Main</a>
+            <a href="#top" class="logo">Cutaway Main</a>
             <ul class="nav-links">
                 <li><a href="#games">Games</a></li>
                 <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
     </header>
@@ -343,7 +346,7 @@
             </p>
         </section>
 
-        <section id="contact" class="newsletter">
+        <section class="newsletter">
             <h2>Stay Updated</h2>
             <p>Sign up to receive the latest news, updates, and announcements about our games</p>
             <form class="newsletter-form" action="#" method="POST">
