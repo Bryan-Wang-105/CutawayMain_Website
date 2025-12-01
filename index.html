@@ -5,7 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Cutaway Main - Independent game studio creating unique gaming experiences">
     <title>Cutaway Main | Indie Game Studio</title>
+    
     <style>
+        @font-face {
+            font-family: 'Doctor Glitch';
+            src: url('Assets/fonts/Doctor Glitch.otf') format('opentype');
+            font-weight: normal;
+            font-style: normal;
+        }
+        
         * {
             margin: 0;
             padding: 0;
@@ -54,6 +62,7 @@
             color: var(--accent-color);
             text-decoration: none;
             letter-spacing: 0.5px;
+            font-family: 'Doctor Glitch', sans-serif;
         }
 
         .nav-links {
@@ -76,24 +85,24 @@
         .hero {
             position: relative;
             width: 100%;
-            height: 500px;
+            height: 600px;
             overflow: hidden;
             display: flex;
             align-items: center;
             justify-content: center;
+            background: var(--bg-darker);
         }
 
         .hero-video {
             position: absolute;
             top: 50%;
             left: 50%;
-            min-width: 100%;
-            min-height: 100%;
-            width: auto;
-            height: auto;
+            width: 100%;
+            height: 100%;
             transform: translate(-50%, -50%);
             z-index: 1;
-            object-fit: cover;
+            object-fit: contain;
+            pointer-events: none;
         }
 
         .hero-overlay {
@@ -102,8 +111,9 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(15, 20, 25, 0.6);
+            background: rgba(15, 20, 25, 0.4);
             z-index: 2;
+            pointer-events: none;
         }
 
         .hero-content {
@@ -114,13 +124,15 @@
         }
 
         .hero h1 {
-            font-size: 3.5rem;
+            font-size: 4rem;
             margin-bottom: 1rem;
             background: linear-gradient(135deg, #4299e1 0%, #667eea 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
             animation: fadeIn 1.5s ease-in;
+            font-family: 'Doctor Glitch', sans-serif;
+            font-weight: normal;
         }
 
         .hero p {
@@ -320,7 +332,7 @@
 
         @media (max-width: 768px) {
             .hero {
-                height: 350px;
+                height: 400px;
             }
 
             .hero h1 {
