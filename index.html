@@ -59,7 +59,7 @@
         .logo {
             font-size: 2rem;
             font-weight: bold;
-            color: var(--accent-color);
+            color: white;
             text-decoration: none;
             letter-spacing: 0.5px;
             font-family: 'Doctor Glitch', sans-serif;
@@ -103,6 +103,15 @@
             z-index: 1;
             object-fit: contain;
             pointer-events: none;
+            user-select: none;
+        }
+
+        .hero-video::-webkit-media-controls {
+            display: none !important;
+        }
+
+        .hero-video::-webkit-media-controls-enclosure {
+            display: none !important;
         }
 
         .hero-overlay {
@@ -126,10 +135,8 @@
         .hero h1 {
             font-size: 4rem;
             margin-bottom: 1rem;
-            background: linear-gradient(135deg, #4299e1 0%, #667eea 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: white;
+            text-shadow: 0 4px 12px rgba(0, 0, 0, 0.8), 0 2px 4px rgba(0, 0, 0, 0.9);
             animation: fadeIn 1.5s ease-in;
             font-family: 'Doctor Glitch', sans-serif;
             font-weight: normal;
@@ -370,7 +377,7 @@
 
     <section class="hero">
         <!-- Background Video -->
-        <video class="hero-video" autoplay muted loop playsinline>
+        <video class="hero-video" autoplay muted loop playsinline disablePictureInPicture>
             <source src="Assets/Portfolio.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
@@ -400,11 +407,11 @@
                 
                 <!-- Add more game cards as needed -->
                 <div class="game-card">
-                    <div class="game-image">TBD</div>
+                    <div class="game-image">KAWAII CONS0LE</div>
                     <div class="game-content">
-                        <h3>Coming Soon</h3>
-                        <p>More exciting projects in the works. Stay tuned for updates!</p>
-                        <span class="game-status">Upcoming</span>
+                        <h3>KAWAII CONS0LE</h3>
+                        <p>You've been hired on short-notice to manage server infrastructure at a mysterious data center staffed by a few very unconventional AI assistants. Can you manage and uncover what lies beneath the KAWAII CONS0LE?</p>
+                        <span class="game-status">In Development</span>
                     </div>
                 </div>
             </div>
